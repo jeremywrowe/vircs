@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 $here = File.expand_path(File.dirname(__FILE__))
+$here = File.expand_path(File.dirname(File.readlink(__FILE__))) if File.symlink?(__FILE__)
 require 'fileutils'
 include FileUtils
 
@@ -11,8 +12,12 @@ class Virc
 
   def list(*args)
     args.flatten!
-    Dir[$here+"/*/"].each do |p|
-      puts p
+    Dir[$here+"/*"].each do |p|
+      if File.directory?(p)
+        config = p.split("/").last
+        config += "*" if config == current(true)
+        puts config
+      end
     end
 
   end
@@ -31,7 +36,7 @@ class Virc
   end
 
   def current(args)
-    path = File.read(File.join($here, ".current"))
+    path = File.read(File.join($here, ".current")).split("\n").first
     if args
       path
     else
