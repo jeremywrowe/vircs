@@ -70,7 +70,7 @@ class Virc
         link_path     = File.readlink(path)
         includes_base = link_path.start_with?($here)
         File.unlink(path) if includes_base
-        puts "Removed [#{path}]" if includes_base and debug
+        puts "Removed [#{path}]"
       end
     end
   end
@@ -83,7 +83,7 @@ class Virc
         dest_path = File.join(ENV["HOME"], path)
         path = File.join(vim_config_path, path) unless path.start_with? vim_config_path
         File.symlink path, dest_path
-        puts "Added #{dest_path}" if debug
+        puts "Added   [#{dest_path}]"
       rescue Exception => e
         puts "#{e.message}. Continuing" if debug
       end
