@@ -55,7 +55,7 @@ class Virc
   private
 
   def check_for(name)
-    raise "Could not find '#{name}' directory in [#{$here}]. Perhaps do a 'virc list'" unless Dir.glob("**/").include?("#{name}/")
+    raise "Could not find '#{name}' directory in [#{$here}]. Perhaps do a 'virc list'" unless Dir.glob($here+"/**").include?("#{$here}/#{name}")
   end
 
   def save_current(config)
