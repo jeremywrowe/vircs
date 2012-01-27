@@ -1,13 +1,51 @@
 #!/usr/bin/env ruby
 $here = File.expand_path(File.dirname(__FILE__))
 $here = File.expand_path(File.dirname(File.readlink(__FILE__))) if File.symlink?(__FILE__)
-require 'fileutils'
-include FileUtils
 
 class Virc 
 
+require 'fileutils'
+include FileUtils
+
   def usage(*args)
-    puts DATA.read
+usage = <<-USG
+|===============================================================
+|
+|                VIRCS - vim config management
+|
+|===============================================================
+|
+|  SETUP
+|
+|    To use vircs place the source files for vircs anywhere you wish to.
+|
+|      * Link vircs to a bin directory in your path. Note: make sure to start a new terminal
+|      * Create folders in the vircs folder including all of your vim configuration in them.
+|        EX: 
+|          /path/to/vircs/folder/config1
+|          /path/to/vircs/folder/config2
+|          /path/to/vircs/folder/config3
+|
+|  COMMANDS
+|
+|    usage: lists this lovely help file :)
+|           EX: vircs usage
+|
+|    list: lists all of the available vim configurations
+|          EX: vircs list
+|
+|    use: switchs to the supplied vim configuration
+|          EX: vircs use foo
+|          (this will switch to the foo configuration)
+|
+|    current: displays the current vim configuration
+|          EX: vircs current
+|
+|    prompt_info: displays the current vim configuration as follows "vircs:config_x"
+|                 where config_x is the current configuration
+|          EX: vircs prompt_info
+USG
+    puts usage.gsub("|", "")
   end
 
   def list(*args)
@@ -19,7 +57,6 @@ class Virc
         puts config
       end
     end
-
   end
 
   def use(*args)
@@ -109,41 +146,4 @@ if __FILE__ == $0
     instance.usage
   end
 end
-
-__END__
-===============================================================
-
-                VIRCS - vim config management
-
-===============================================================
-
-  SETUP
-
-    To use vircs place the source files for vircs anywhere you wish to.
-
-      * Link vircs to a bin directory in your path. Note: make sure to start a new terminal
-      * Create folders in the vircs folder including all of your vim configuration in them.
-        EX: 
-          /path/to/vircs/folder/config1
-          /path/to/vircs/folder/config2
-          /path/to/vircs/folder/config3
-
-  COMMANDS
-
-    usage: lists this lovely help file :)
-           EX: vircs usage
-
-    list: lists all of the available vim configurations
-          EX: vircs list
-
-    use: switchs to the supplied vim configuration
-          EX: vircs use foo
-          (this will switch to the foo configuration)
-
-    current: displays the current vim configuration
-          EX: vircs current
-
-    prompt_info: displays the current vim configuration as follows "vircs:config_x"
-                 where config_x is the current configuration
-          EX: vircs prompt_info
 
