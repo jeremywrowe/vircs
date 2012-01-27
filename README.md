@@ -41,7 +41,7 @@
 What follows is the modified MIT License that applies to
 vircs
 
-Copyright © 2011 Jeremy Rowe (http://jeremyrowe.com)
+Copyright © 2012 Jeremy Rowe (http://jeremyrowe.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
