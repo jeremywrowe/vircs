@@ -4,6 +4,8 @@
 
 ===============================================================
 
+[![Build Status](https://secure.travis-ci.org/jeremywrowe/vircs.png)](http://travis-ci.org/jeremywrowe/vircs)
+
   SETUP
 
     To use vircs place the source files for vircs anywhere you wish to.
