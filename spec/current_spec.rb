@@ -1,6 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/spec_helper.rb")
 
-
 module Vircs
   describe Virc do
     context "#current" do
