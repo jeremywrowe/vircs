@@ -1,3 +1,4 @@
-source "http://rubygems.org"
-gem 'rake'
-gem 'rspec', '>=2.8.0'
+source 'https://rubygems.org'
+
+# Specify your gem's dependencies in vircs.gemspec
+gemspec

@@ -1,3 +1,23 @@
+# Vircs
+
+TODO: Write a gem description
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'vircs'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install vircs
+
+## Usage
+
 ===============================================================
 
                 VIRCS - vim config management
@@ -10,14 +30,18 @@
 
     To use vircs place the source files for vircs anywhere you wish to.
 
-      * Link vircs to a bin directory in your path. Note: make sure to
-        start a new terminal
       * Create folders in the vircs folder including all of your vim
         configuration in them.
         EX: 
           /path/to/vircs/folder/config1
           /path/to/vircs/folder/config2
           /path/to/vircs/folder/config3
+      
+      * make sure you have a .vircs file with the file path in which you
+        wish to store your vim configuration files in it. Defaults to 
+        ~/.vimz if one is not found.
+
+        Example .vircs file: ~/.my_super_awesome_vim_configurations
 
   COMMANDS
 
@@ -39,6 +63,16 @@
           EX: vircs prompt_info
 
 --------------------------------------------------
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+## License
 
 What follows is the modified MIT License that applies to
 vircs
@@ -65,5 +99,4 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 
