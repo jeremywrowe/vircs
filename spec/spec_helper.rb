@@ -1,5 +1,5 @@
-load File.join(File.dirname(__FILE__), "..", "vircs")
 $LOAD_PATH <<  File.join(File.dirname(__FILE__), "..", "lib")
+require 'vircs'
 
 require 'stringio'
 require 'pry'
