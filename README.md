@@ -1,34 +1,18 @@
 # Vircs
 
-TODO: Write a gem description
+Vircs is a simple way of managing vim configuration files, allowing you the 'awesome' vim user to switch between a grouping of vim configuration files. (great for pairing). This is achieved by tracking, linking and unlinking vim files and folders in a common location.
 
+## ATTENTION!
+	Vircs can be destructive if you are not careful.  Please read carefully, and don't hold me responsible, I back up my configuration files with git, I suggest you do the same. (with or without this tool) :) Vircs unlinks and links files/folders when switching between configuration sets. So if you haven't moved all of your .vim files into a vircs directory, they could get deleted if similarly named files are in the vircs configuration set. I warned you.
+	
 ## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'vircs'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install vircs
-
-## Usage
-
-===============================================================
-
-                VIRCS - vim config management
-
-===============================================================
-
-[![Build Status](https://secure.travis-ci.org/jeremywrowe/vircs.png)](http://travis-ci.org/jeremywrowe/vircs)
-
-  SETUP
-
-    To use vircs place the source files for vircs anywhere you wish to.
+	$ gem install vircs
+	
+	or
+	
+	clone the project, and then run `rake vircs:install` if you don't want to install via ruby gems (this might be prefered if running rvm)
+	
+	To use vircs place the source files for vircs anywhere you wish to. (defaults location is ~/.vims).
 
       * Create folders in the vircs folder including all of your vim
         configuration in them.
@@ -39,9 +23,27 @@ Or install it yourself as:
       
       * make sure you have a .vircs file with the file path in which you
         wish to store your vim configuration files in it. Defaults to 
-        ~/.vimz if one is not found.
+        ~/.vims if one is not found. (rake vircs:install will create ~/.vims for you)
 
-        Example .vircs file: ~/.my_super_awesome_vim_configurations
+        Example ~/.vircs file contents: ~/.my_super_awesome_vim_configurations
+		
+		Example vircs folder structure 
+		
+		└── .vircs
+			├── pat
+			│   ├── .foobartest
+			│   ├── .gvimrc
+			│   └── .vimrc
+			├── sam
+			│   └── .gvimrc
+			└── vircs.current
+		
+		Where 'pat' is a folder with vim configuration files for the 'pat' configuration set, and 'sam' is a folder 
+		for the 'sam' configuration set.
+	
+## Usage
+
+[![Build Status](https://secure.travis-ci.org/jeremywrowe/vircs.png)](http://travis-ci.org/jeremywrowe/vircs)
 
   COMMANDS
 
@@ -58,9 +60,13 @@ Or install it yourself as:
     current: displays the current vim configuration
           EX: vircs current
 
+	dir: shows you where your configuration files are stored
+
     prompt_info: displays the current vim configuration as follows "vircs:configx"
                  where configx is the current configuration
           EX: vircs prompt_info
+
+	version: gem version
 
 --------------------------------------------------
 
@@ -77,7 +83,7 @@ Or install it yourself as:
 What follows is the modified MIT License that applies to
 vircs
 
-Copyright © 2012 Jeremy Rowe (http://jeremyrowe.com)
+Copyright © 2012 Jeremy Rowe
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the

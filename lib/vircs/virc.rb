@@ -23,19 +23,6 @@ module Vircs
   |
   |===============================================================
   |
-  |  SETUP
-  |
-  |    To use vircs place the source files for vircs anywhere you wish to.
-  |
-  |      * Link vircs to a bin directory in your path. Note: make sure to start a new terminal
-  |      * Create folders in the vircs folder including all of your vim configuration in them.
-  |        EX:
-  |          /path/to/vircs/folder/config1
-  |          /path/to/vircs/folder/config2
-  |          /path/to/vircs/folder/config3
-  |
-  |  COMMANDS
-  |
   |    usage: lists this lovely help file :)
   |           EX: vircs usage
   |
@@ -49,11 +36,13 @@ module Vircs
   |    current: displays the current vim configuration
   |          EX: vircs current
   |
+  |    dir: shows you where your configuration files are stored
+  |
   |    prompt_info: displays the current vim configuration as follows "vircs:config_x"
   |                 where config_x is the current configuration
   |          EX: vircs prompt_info
   |
-  |    version
+  |    version: gem version
   USG
       $stdout.puts usage.gsub("|", "")
     end
