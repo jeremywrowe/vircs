@@ -6,12 +6,15 @@ Gem::Specification.new do |gem|
   gem.email         = ["jeremy.w.rowe@gmail.com"]
   gem.summary       = %q{A simplistic approach to managing vim configuration files.}
 
-  gem.files         = `git ls-files`.split($\)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.name          = "vircs"
-  gem.require_paths = ["lib"]
-  gem.version       = Vircs::VERSION
+  gem.files              = `git ls-files`.split($\)
+  gem.executables        = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files         = `git ls-files -- {test,spec,features}/*`.split("\n")
+  gem.name               = "vircs"
+  gem.bindir             = 'bin'
+  gem.executables        = ['vircs']
+  gem.default_executable = 'vircs'
+  gem.require_paths      = ["lib"]
+  gem.version            = Vircs::VERSION
 
   gem.add_development_dependency('rake')
   gem.add_development_dependency('rspec')
