@@ -6,12 +6,24 @@ module Vircs
       context "with args" do
         let(:args) { "foo" }
         it "saves the current config" do
-          subject.stub_chain(:check_for).with("foo")
-          subject.stub_chain(:unlink_current)
-          subject.stub_chain(:setup_links).with("foo")
-          subject.stub_chain(:save_current).with("foo")
-          subject.use(args)
+          subject.should_receive(:check_for).with("foo")
+          subject.should_receive(:unlink_current)
+          subject.should_receive(:setup_links).with("foo")
+          subject.should_receive(:save_current).with("foo")
+          capture(:stdout) { subject.use(args) }.should == ""
         end
+
+        it "saves the current configuration when files are present" do
+          subject = Virc.new File.expand_path('examples', File.dirname(__FILE__))
+          subject.should_receive(:check_for).with("flinstone")
+          subject.should_receive(:unlink_current)
+          # subject.setup_links: is called but we want it to execute
+          #                      but without actually creating symbolic links
+          File.stub(:symlink)
+          subject.should_receive(:save_current).with("flinstone")
+          capture(:stdout) { subject.use("flinstone") }.should =~ /Added\s+\[.+\/bambam\]/
+        end
+
         it "raises an exception when the supplied folder is not present" do
           subject.stub_chain(:check_for).and_raise("KA-BOOM")
           expect { subject.use(args) }.to raise_error("KA-BOOM")

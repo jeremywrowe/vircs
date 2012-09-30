@@ -2,6 +2,7 @@ load File.join(File.dirname(__FILE__), "..", "vircs")
 $LOAD_PATH <<  File.join(File.dirname(__FILE__), "..", "lib")
 
 require 'stringio'
+require 'pry'
 
 def capture(*streams)
   streams.map! { |stream| stream.to_s }

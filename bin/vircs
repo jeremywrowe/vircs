@@ -88,7 +88,7 @@ module Vircs
     end
 
     def dir(*args)
-      $stdout.puts execution_path 
+      $stdout.puts execution_path
     end
 
     def version(*args)
@@ -130,10 +130,8 @@ module Vircs
           link_path     = File.readlink(path)
           includes_base = link_path.start_with?(execution_path)
           if includes_base
-            File.unlink(path
+            File.unlink(path)
             $stdout.puts "Removed [#{path}]"
-          else
-            $stderr.puts "There were no files to manage. Please check [#{execution_path}] to ensure that there are files there"
           end
         end
       end
